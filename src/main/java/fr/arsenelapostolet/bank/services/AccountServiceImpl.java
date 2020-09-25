@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AccountServiceImpl implements AccountService {
 
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
 
     public AccountServiceImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
@@ -58,7 +58,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<Operation> getOperations(int accountNumber) {
         var account = this.accountRepository.get(accountNumber);
-        return account.getOpertations();
+        return account.getOperations();
     }
 
     @Override

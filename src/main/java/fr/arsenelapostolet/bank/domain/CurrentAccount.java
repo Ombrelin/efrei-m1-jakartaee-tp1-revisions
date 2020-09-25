@@ -18,4 +18,8 @@ public class CurrentAccount extends Account {
     public void updateBalance() {
         throw new UnsupportedOperationException("Les comptes courants n'ont pas d'intérêts");
     }
+
+    public BigDecimal getOverdraft() {
+        return overdraft;
+    }
 }

@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface AccountRepository {
     void insert(Account c);
-
     Account get(int numero);
-
     List<Account> getAll();
 }

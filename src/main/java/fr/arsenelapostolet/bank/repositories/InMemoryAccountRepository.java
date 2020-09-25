@@ -20,7 +20,7 @@ public class InMemoryAccountRepository implements AccountRepository {
                 .stream()
                 .filter(account -> account.getAccountNumber() == accountNumber)
                 .findAny()
-                .orElseThrow(IllegalAccessError::new);
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     @Override

@@ -23,7 +23,7 @@ public abstract class Account {
 
     public void withdraw(BigDecimal amount) {
         if (this.canWithdraw(amount)) {
-            this.getOpertations().add(new Withdrawal(amount));
+            this.getOperations().add(new Withdrawal(amount));
             this.balance = this.balance.subtract(amount);
         } else {
             throw new IllegalStateException("Solde insuffisant");
@@ -41,14 +41,10 @@ public abstract class Account {
         }
     }
 
-    public BigDecimal checkBalance() {
-        return this.balance;
-    }
-
     public abstract void updateBalance();
 
 
-    public List<Operation> getOpertations() {
+    public List<Operation> getOperations() {
         return this.operations;
     }
 

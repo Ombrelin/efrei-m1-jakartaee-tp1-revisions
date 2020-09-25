@@ -1,22 +1,23 @@
-package fr.arsenelapostolet.banque.domain;
+package fr.arsenelapostolet.bank.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public abstract class Operation {
     private static int currentOperationNumber = 0;
 
-    private int numero;
-    private double montant;
-    private LocalDate date;
+    private final int numero;
+    private final BigDecimal amount;
+    private final LocalDate date;
 
-    public Operation(double montant) {
+    public Operation(BigDecimal montant) {
         this.numero = ++currentOperationNumber;
-        this.montant = montant;
+        this.amount = montant;
         this.date = LocalDate.now();
     }
 
-    public double getMontant() {
-        return montant;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
     public int getNumero() {

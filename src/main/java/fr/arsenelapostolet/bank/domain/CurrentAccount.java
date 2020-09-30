@@ -10,8 +10,13 @@ public class CurrentAccount extends Account {
     }
 
     @Override
-    public boolean canWithdraw(BigDecimal amount) {
-        return this.getBalance().subtract(amount).compareTo(this.overdraft.negate()) >= 0;
+    public void withdraw(BigDecimal amount) {
+        if(this.getBalance().subtract(amount).compareTo(this.overdraft.negate()) >= 0){
+            super.withdraw(amount);
+        }
+        else {
+            throw new IllegalStateException("Solde insuffisant");
+        }
     }
 
     @Override

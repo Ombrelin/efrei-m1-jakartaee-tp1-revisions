@@ -20,8 +20,13 @@ public class SavingsAccount extends Account {
     }
 
     @Override
-    public boolean canWithdraw(BigDecimal montant) {
-        return this.getBalance().subtract(montant).compareTo(BigDecimal.ZERO) >= 0;
+    public void withdraw(BigDecimal amount) {
+        if(this.getBalance().subtract(amount).compareTo(BigDecimal.ZERO) >= 0){
+            super.withdraw(amount);
+        }
+        else {
+            throw new IllegalStateException("Solde insuffisant");
+        }
     }
 
     @Override

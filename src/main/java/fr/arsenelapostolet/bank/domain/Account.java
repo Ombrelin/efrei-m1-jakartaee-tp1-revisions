@@ -22,23 +22,13 @@ public abstract class Account {
     }
 
     public void withdraw(BigDecimal amount) {
-        if (this.canWithdraw(amount)) {
             this.getOperations().add(new Withdrawal(amount));
             this.balance = this.balance.subtract(amount);
-        } else {
-            throw new IllegalStateException("Solde insuffisant");
-        }
     }
 
-    public abstract boolean canWithdraw(BigDecimal montant);
-
     public void transfer(BigDecimal amount, Account beneficiary) {
-        if (this.canWithdraw(amount)) {
             this.withdraw(amount);
             beneficiary.deposit(amount);
-        } else {
-            throw new IllegalStateException("Solde insuffisant");
-        }
     }
 
     public abstract void updateBalance();
